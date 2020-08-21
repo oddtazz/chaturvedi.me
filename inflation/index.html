@@ -1,0 +1,188 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta property="og:url"                content="https://chaturvedi.me/inflation/" />
+  <meta property="og:type"               content="website" />
+  <meta property="og:title"              content="Time value of Money" />
+  <meta property="og:description"        content="See what inflation does to your money" />
+  <meta property="fb:app_id"             content="1585506604877186" />
+  <title>Time value of Money</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script type="text/javascript">
+      var Initialamount;
+      var InitialYear;
+      var amount = 0;
+      var year = 0;
+      var inflextion = 0;
+      var inflation = {
+        1958: 7.48, 1959: 7.53,
+        1960: 7.58, 1961: 7.68,
+        1962: 7.79, 1963: 7.86,
+        1964: 7.95, 1965: 7.85,
+        1966: 7.82, 1967: 7.76,
+        1968: 7.65, 1969: 7.74,
+        1970: 7.91, 1971: 7.97,
+        1972: 8.08, 1973: 8.12,
+        1974: 7.92, 1975: 7.44,
+        1976: 7.46, 1977: 7.83,
+        1978: 7.81, 1979: 7.95,
+        1980: 7.99, 1981: 7.90,
+        1982: 7.56, 1983: 7.75,
+        1984: 7.63, 1985: 7.61,
+        1986: 7.67, 1987: 7.64,
+        1988: 7.60, 1989: 7.54,
+        1990: 7.56, 1991: 7.51,
+        1992: 7.26, 1993: 7.08,
+        1994: 7.11, 1995: 6.97,
+        1996: 6.82, 1997: 6.72,
+        1998: 6.70, 1999: 6.35,
+        2000: 6.44, 2001: 6.58,
+        2002: 6.76, 2003: 6.92,
+        2004: 7.14, 2005: 7.40,
+        2006: 7.66, 2007: 7.83,
+        2008: 7.98, 2009: 7.94,
+        2010: 7.58, 2011: 6.93,
+        2012: 6.60, 2013: 6.06,
+        2014: 4.85, 2015: 4.35,
+        2016: 3.58, 2017: 2.19,
+        2018: 4.85, 2019: 9.63
+      };
+      //Historical inflation
+      function getInitialamount()    {
+        return document.getElementById("amount").value;
+      }
+      function getInitialYear()    {
+        return document.getElementById("year").value;
+      }
+      function display()  {
+        amount = getInitialamount();
+        year = getInitialYear();
+        inflextion = getInflation(amount, year)
+        document.getElementById('mydiv').innerHTML='The initial corpus of ' + amount +'₹ is now worth ' + Math.round(inflextion) + '₹';
+        document.getElementById("form").submit();
+      }
+      function getInflation(initial, year) {
+      	var now = new Date();
+      	var period = now.getFullYear() - year;
+        return initial * Math.pow(
+        	(1 + (inflation[year] * 0.01)),
+          period
+        );
+      }
+      //Future inflation
+      function getFInitialamount()    {
+        return document.getElementById("Famount").value;
+      }
+      function getFInitialYear()    {
+        return document.getElementById("Fyear").value;
+      }
+      function getFInitialInflation()    {
+        return document.getElementById("Finflation").value;
+      }
+      function Fdisplay()  {
+        amount = getFInitialamount();
+        year = getFInitialYear();
+        Finflextion = getFInflation(amount, year)
+        document.getElementById('Fmydiv').innerHTML='The initial corpus of ' + amount +'₹ is now worth ' + Math.round(Finflextion) + '₹';
+        document.getElementById("form").submit();
+      }
+      function getFInflation(initial, year) {
+      	var now = new Date();
+      	var period = year - now.getFullYear();
+        Finflation = getFInitialInflation();
+        return initial * Math.pow(
+        	(1 + (Finflation * 0.01)),
+          period
+        );
+      }
+    </script>
+  </head>
+  <body>
+    <div class='container'>
+      <div class="page-header">
+        <h1>Time value of money calculator <small>Data from 1958 till 2018</small></h1>
+      </div>
+    </div>
+    <br>
+    <div class='container'>
+      <div class="form-inline">
+        <h3>Want to calculate historical inflation? Use this </h3>
+        <form id='form' method = 'post'>
+            <p> <b>Initial amount =</b> <input class="form-control" type='number' value='10' id = "amount"/> ₹ </p>
+            <p><b>Select the year</b>
+              <select name='text' id='year'>
+                <option value="1958" selected>1958</option>   <option value="1959">1959</option>
+                <option value="1960">1960</option>            <option value="1961">1961</option>
+                <option value="1962">1962</option>            <option value="1963">1963</option>
+                <option value="1964">1964</option>            <option value="1965">1965</option>
+                <option value="1966">1966</option>            <option value="1967">1967</option>
+                <option value="1968">1968</option>            <option value="1969">1969</option>
+                <option value="1970">1970</option>            <option value="1971">1971</option>
+                <option value="1972">1972</option>            <option value="1973">1973</option>
+                <option value="1974">1974</option>            <option value="1975">1975</option>
+                <option value="1976">1976</option>            <option value="1977">1977</option>
+                <option value="1978">1978</option>            <option value="1979">1979</option>
+                <option value="1980">1980</option>            <option value="1981">1981</option>
+                <option value="1982">1982</option>            <option value="1983">1983</option>
+                <option value="1984">1984</option>            <option value="1985">1985</option>
+                <option value="1986">1986</option>            <option value="1987">1987</option>
+                <option value="1988">1988</option>            <option value="1989">1989</option>
+                <option value="1990">1990</option>            <option value="1991">1991</option>
+                <option value="1992">1992</option>            <option value="1993">1993</option>
+                <option value="1994">1994</option>            <option value="1995">1995</option>
+                <option value="1996">1996</option>            <option value="1997">1997</option>
+                <option value="1998">1998</option>            <option value="1999">1999</option>
+                <option value="2000">2000</option>            <option value="2001">2001</option>
+                <option value="2002">2002</option>            <option value="2003">2003</option>
+                <option value="2004">2004</option>            <option value="2005">2005</option>
+                <option value="2006">2006</option>            <option value="2007">2007</option>
+                <option value="2008">2008</option>            <option value="2009">2009</option>
+                <option value="2010">2010</option>            <option value="2011">2011</option>
+                <option value="2012">2012</option>            <option value="2013">2013</option>
+                <option value="2014">2014</option>            <option value="2015">2015</option>
+                <option value="2016">2016</option>            <option value="2017">2017</option>
+                <option value="2018">2018</option>            <option value="2017">2019</option> 
+              </select>
+            </p>
+            <p><input class="btn btn-default" id ="submit" type = "button" onclick="display()" value='Calculate'/></p>
+        </form>
+        <h3><div id='mydiv'></div></h3>
+      </div>
+    </div>
+    <br>
+    <div class='container'>
+      <h3>Want to plan ahead, and see what your money will be worth in the future? Use this</h3>
+      <form>
+        <div class="form-inline">
+          <p> <b>Initial amount =</b> <input class="form-control" type='number' value='1000' id = "Famount"/> ₹ </p>
+          <p> <b>Inflation </b> <input class="form-control" type='number' value='7.5' id = "Finflation"/> %</p>
+          <p> <b>Which year would you like to calcuate for?</b> <input class="form-control" type='number' value='2035' id = "Fyear"/>  </p>
+          <p> <input class="btn btn-default" id ="submit" type = "button" onclick="Fdisplay()" value='Calculate'/></p>
+        </div>
+      </form>
+      <h3><div id='Fmydiv'></div></h3>
+    </div>
+    <br>
+    <!--/.Copyright-->
+    <div class='container'>
+      <div class="footer-copyright">
+        <h4>Historical inflation data from <a href="http://www.inflation.eu/inflation-rates/india/historic-inflation/cpi-inflation-india.aspx">here</a></h4>
+        <div class="container-fluid">
+          <h4><a href="https://twitter.com/oddtazz">@oddtazz</a></h4>
+        </div>
+        <div class="container-fluid">
+          © 2020 Copyright: <a href="https://chaturvedi.me"> chaturvedi.me </a>
+        </div>
+      </div>
+    </div>
+    <!--/.Copyright-->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>
+
