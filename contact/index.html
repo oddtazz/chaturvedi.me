@@ -3,18 +3,103 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Contact Card</title>
+        <title>Gaurav Chaturvedi</title>
+
         <style>
-            body
+
+            #wrap
             {
+                width: 600px;
                 margin: 150px auto auto;
                 font-family: Lucida Grande, Verdana, Arial;
-                text-align: center;
+
             }
+
+            #header
+            {
+                text-align: center;
+                border-bottom: 0.5px;
+                border-bottom-style: dotted;
+            }
+
+            a {text-decoration: none; color: #FF4500; font-weight: bold}
+            a:hover {text-decoration: underline; color: green}
+
+            a.fn {text-decoration: none; color:black}
+
+            #main
+            {
+
+                line-height: 2.5em;
+            }
+
+            #left
+            {
+                float: left;
+                text-align: right;
+                width: 200px;
+                margin: 0px;
+                border: 0px;
+                padding: 10px 50px;
+            }
+
+            #right
+            {
+                float: right;
+                width: 200px;
+                margin: 0px;
+                border: 0px;
+                padding: 10px 50px;
+            }
+
+            ul
+            {
+                list-style: none;
+                margin: 0;
+                border: 0;
+                padding: 0;
+                font-size: 1.5em;
+            }
+
+            #footer
+            {
+                clear: both;
+                text-align: center;
+                border-top: 0.5px;
+                border-top-style: dotted;
+                padding-top: 10px;
+                font-size: 0.85em;
+            }
+
+
         </style>
 
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-69913820-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+
     </head>
+
     <body>
-        <img src="contact.png" title="Scan this with your phone" /> 
+        <div id="wrap">
+            <div class="vcard">
+                <div id="header">
+                    <h1><a class="url fn" href="http://chaturvedi.me">Gaurav Chaturvedi</a></h1>
+                    <h3><a class="email" href="mailto:gaurav@chaturvedi.me">gaurav@chaturvedi.me</a></h3>
+                </div>
+                <div id="footer">
+                    <img src="contact.png" title="Scan this with your phone" />
+                </div>
+            </div>
+        </div>
     </body>
+
 </html>
+
